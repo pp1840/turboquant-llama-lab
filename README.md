@@ -1,4 +1,12 @@
+<p align="center">
+  <img src="assets/hero.svg" alt="TurboQuant Llama Lab banner" width="100%" />
+</p>
+
 # TurboQuant Llama Lab
+
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache%202.0-1f6feb.svg)](LICENSE)
+![Status: Experimental](https://img.shields.io/badge/status-experimental-cc7a00.svg)
+![Focus: Long Context](https://img.shields.io/badge/focus-long--context-0b7285.svg)
 
 Experimental TurboQuant implementation and integration path for a `llama.cpp`-style runtime.
 
@@ -8,6 +16,34 @@ This repository is designed to help builders who want:
 - practical benchmark tooling
 - reviewable `llama.cpp` integration patches
 - honest guidance about speed, memory, and validation status
+
+## Why This Repo Exists
+
+TurboQuant is exciting, but most users still need a practical path from paper ideas to
+runtime experiments.
+
+This repo tries to make that path useful:
+
+- a portable C++ core you can build quickly
+- extracted `llama.cpp` patch sets you can inspect and discuss
+- validation scripts for baseline vs TurboQuant runs
+- explicit usage profiles instead of one-size-fits-all claims
+
+## At A Glance
+
+| Area | What You Get |
+| --- | --- |
+| Portable core | Rotation, quantization, and TurboQuant building blocks in standalone C++ |
+| Runtime path | Reviewable `llama.cpp`-style integration patches |
+| Validation | CLI-based baseline vs TurboQuant comparison script |
+| Docs | Architecture, profiles, validated model notes, and roadmap |
+
+## Best Use Cases
+
+- studying TurboQuant-style long-context tradeoffs
+- experimenting with KV compression in a `llama.cpp` ecosystem
+- benchmarking speed-first vs memory-first profiles on local hardware
+- extracting reusable algorithm pieces for other backends
 
 ## Purpose
 
@@ -34,6 +70,14 @@ It aims to be useful for users who want to:
 - build the portable pieces quickly
 - evaluate long-context tradeoffs on their own hardware
 - apply and iterate on the runtime integration as patch sets
+
+## Public Highlights
+
+- portable core in [`cpp/`](cpp/)
+- benchmark tool in [`cpp/tools`](cpp/tools)
+- validator in [`scripts/validate_llama_cli.py`](scripts/validate_llama_cli.py)
+- extracted patch sets in [`patches/llama.cpp/generated`](patches/llama.cpp/generated)
+- benchmark summary in [`docs/BENCHMARK_HIGHLIGHTS.md`](docs/BENCHMARK_HIGHLIGHTS.md)
 
 ## Model Support Status
 
@@ -79,7 +123,7 @@ The current public scope includes:
 2. a standalone benchmark tool
 3. a validation script for `llama.cpp` runs
 4. extracted `llama.cpp` patch sets
-5. architecture, quickstart, usage-profile, validated-model, and roadmap documentation
+5. architecture, quickstart, usage-profile, benchmark-highlight, validated-model, and roadmap documentation
 
 ## Repository Layout
 
@@ -93,6 +137,8 @@ The current public scope includes:
   Home for extracted `llama.cpp` integration patch sets.
 - `benchmarks/`
   Benchmark notes and future published reports.
+- `assets/`
+  Visual assets for the GitHub landing page and future publishing material.
 
 ## License
 
@@ -107,6 +153,7 @@ See [LICENSE](LICENSE).
 - support policy: [SUPPORT.md](SUPPORT.md)
 - security policy: [SECURITY.md](SECURITY.md)
 - roadmap: [docs/ROADMAP.md](docs/ROADMAP.md)
+- benchmark highlights: [docs/BENCHMARK_HIGHLIGHTS.md](docs/BENCHMARK_HIGHLIGHTS.md)
 
 ## Quick Start
 
@@ -136,6 +183,13 @@ scripts/export_llama_cpp_patches.sh
 The generated patch sets are written under:
 
 - `patches/llama.cpp/generated/`
+
+For a guided start, read:
+
+1. [docs/QUICKSTART.md](docs/QUICKSTART.md)
+2. [docs/USAGE_PROFILES.md](docs/USAGE_PROFILES.md)
+3. [docs/VALIDATED_MODELS.md](docs/VALIDATED_MODELS.md)
+4. [docs/BENCHMARK_HIGHLIGHTS.md](docs/BENCHMARK_HIGHLIGHTS.md)
 
 ## Current Status
 
